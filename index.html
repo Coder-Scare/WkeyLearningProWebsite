@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+    <title>Wes-Key Learning | Learning And Pushing Forward</title>
+</head>
+    <body>
+     <!-- Navbar  -->
+     <div class="navbar">
+        <div class="container flex">
+            <div class="logo_container">
+                <div class="circle">
+                    <picture>
+                        <source type="image/webp" srcset="images/images-webp/logo.webp"/>
+                        <source type="image/png" srcset="images/logo.png"/>
+                        <img class="logo" src="images/logo.png" alt="Wes-Key Learning Logo" width="80">
+                    </picture>
+                </div>
+                <h2>Wes-Key Learning</h2>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Tutors</a></li>
+                    <li><a href="#">Login</a></li>
+                    <li>
+                        <!-- Navbar Dropdown Menu-->
+                        <div class="dropdown">
+                            <button onclick="myFunction()" class="dropbtn">More
+                                <i class="fa fa-caret-down"></i>
+                            </button>
+                            
+                            <div class="dropdown-content" id="myDropdown">
+                                <a href="#">Meet Wesley</a>
+                                <a href="#">Pricing</a>
+                                <a href="#">Online Safety</a>
+                                <a href="#">Terms and Conditions</a>
+                                <a href="#">Reviews</a>
+                                <a href="#">Contact Us</a>
+                            </div>
+                        </div>
+                    </li>
+                    
+
+                </ul>
+                
+            </nav>
+        </div>
+     </div>
+
+     <!-- Showcase -->
+     <section class="showcase">
+        <div class="container grid">
+            <div class="showcase-text">
+                <h1>Learning and Pushing Forward</h1>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum voluptates dicta ut. Vero quasi magni iure maiores exercitationem itaque animi veniam voluptas in minima, cumque hic eius nulla autem assumenda.
+                </p>
+                <a href="#About" class="btn btn-outline">Read More</a>
+            </div>
+
+            <div class="showcase-form card">
+                <h2>Request a Free 30 Minute Session</h2>
+                <form action="">
+                    <div class="form-control">
+                        <input type="text" name="fname" placeholder="First Name" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="text" name="lname" placeholder="Last Name" required>
+                    </div>
+                    <div class="form-control">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-control" required>
+                        <label for="subject">Choose a Subject:</label>
+                        <select name="subject" id="subject">
+                            <option value="Maths">Maths</option>
+                            <option value="Science">Science</option>
+                            <option value="Biology">Biology</option>
+                            <option value="Chemistry">Chemistry</option>
+                            <option value="Physics">Physics</option>
+                            <option value="Coding">Coding</option>
+                        </select>
+                    </div>
+                    <div class="form-control" required>
+                        <label for="level">Choose an academic level:</label>
+                        <select name="level" id="level">
+                            <option value="ks1">Key Stage 1 (KS1)</option>
+                            <option value="ks2">Key Stage 2 (KS2)</option>
+                            <option value="ks3">Key Stage 3 (KS3)</option>
+                            <option value="gcse">GCSE</option>
+                            <option value="alevel">A-Level</option>
+                        </select>
+                    </div>
+                    <div class="form-control">
+                      <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+                    </div>
+                    <input type="submit" value="Send" class="btn btn-primary">
+
+
+                </form>
+            </div>
+        </div>
+     </section>
+
+     <script>
+        /* When the user clicks on the button, 
+        toggle between hiding and showing the dropdown content */
+        function myFunction() {
+          document.getElementById("myDropdown").classList.toggle("show");
+        }
+        
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(e) {
+          if (!e.target.matches('.dropbtn')) {
+          var myDropdown = document.getElementById("myDropdown");
+            if (myDropdown.classList.contains('show')) {
+              myDropdown.classList.remove('show');
+            }
+          }
+        }
+      </script>  
+    </body>
+</html>
