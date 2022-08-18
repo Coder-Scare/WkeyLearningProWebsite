@@ -3,6 +3,8 @@
 
 :root {
   --primary-color: #942dad;
+  --secondary-color: #eee4f1;
+  --dark-color: #7f2d94;
 }
 
 /* CSS Reset */
@@ -31,6 +33,7 @@ a {
 h1, h2 {
   font-weight: 400;
   line-height: 1.2;
+  /* Below is causing gap between elements */
   margin: 10px 0;
 }
 
@@ -43,25 +46,9 @@ img {
   width: 100%;
 }
 
-/* ---------- Utility Classes ----------- */
-.container {
-  max-width: 1500px;
-  margin: 0 auto;
-  padding: 0 40px;
-}
-
-.flex {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
 /* ------------- Nav Bar Styling -------------- */
 .navbar {
-  background-color: var(--primary-color);
-  color: #eee4f1;
-  height: 70px;
+  height: 80px;
 }
 
 .navbar ul {
@@ -73,13 +60,30 @@ img {
   margin: 0 5px;
 }
 
-.navbar a {
-  color: #eee4f1;
-}
-
 .navbar .flex {
   justify-content: space-between;
+  padding-top: 10px;
 }
+
+/* -- Book Now Button */
+.navbar .book-btn {
+  padding: 0 0 0 10px;
+}
+
+.navbar .btn {
+  color: var(--primary-color);
+  font-weight: 500;
+  border: 1px var(--secondary-color) solid;
+}
+
+.navbar .btn:hover {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  transform: scale(1);
+  border: 1px var(--secondary-color) solid;
+}
+
+
 
 /* -- Logo & Text stuff -- */
 .logo_container {
@@ -93,13 +97,14 @@ img {
   display: inline-block;
   padding-left: 7px;
   font-weight: 400;
+  font-size: 24px;
 }
 
 .circle {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 60px;
+  width: 60px;
   height: 60px;
   background-color: #fff;
   border-radius: 50%;
@@ -121,30 +126,30 @@ img {
   font-size: 16px;
   border: none;
   outline: none;
-  color: #eee4f1;
+  color: var(--secondary-color);
   background-color: inherit;
   margin: 0;
 }
 
 /* Add Underline hover later */
-.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
-  border-bottom: 2px #eee4f1 solid;
+.navbar a:hover, .dropdown:hover .dropbtn {
+  border-bottom: 2px var(--secondary-color) solid;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  right: 0px;
+  right: 80px;
   top: 70px;
   background-color: var(--primary-color);
   min-width: 180px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+  box-shadow: 0px 10px 16px 0px rgba(0,0,0,0.2);
+  z-index: 4;
 }
 
 .dropdown-content a {
   float: none;
-  color: #eee4f1;
+  color: var(--secondary-color);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
@@ -153,9 +158,8 @@ img {
 
 /* Add underline for dropdown content hover later */
 .dropdown-content a:hover {
-  background-color: #7f2d94;
+  background-color: var(--primary-color-hover);
 }
-
 
 .show {
   display: block;
@@ -163,9 +167,476 @@ img {
 
 /* ------------- Showcase -------------- */
 .showcase {
-  height: 400px;
-  background-color: var(--primary-color);
+  height: 450px;
+
+  position: relative;
 }
+
+.showcase-text {
+  padding-bottom: 120px;
+}
+
+.showcase p {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.showcase .grid {
+  overflow: visible;
+  grid-template-columns: 55% 45%;
+  gap: 30px;
+}
+
+.showcase-form {
+  position: relative;
+  top: 40px;
+  height: 550px; /* No height might be better? */
+  width: 600px;
+  padding: 20px;
+  z-index: 3;
+  justify-self: flex-end;
+}
+
+.showcase-form h2 {
+  font-size: 24px;
+}
+
+.showcase-form .form-control {
+  margin: 20px 0;
+}
+
+.showcase-form input[type='text'], 
+.showcase-form input[type='email'] {
+  border: 0;
+  border-bottom: 1px solid #b4becb;
+  width: 100%;
+  padding: 3px;
+  font-size: 16px;
+}
+
+.showcase-form input:focus {
+  outline: none;
+}
+
+.showcase::before,.showcase::after {
+    content: '';
+    position: absolute;
+    height: 100px;
+    bottom: -70px;
+    right: 0;
+    left: 0;
+    background-color: #fff;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+.form-control select {
+  padding: 4px 8px;
+  border: 1px solid #ddcccc;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-left: 5px;
+
+  /* Replace the default styling (arrow) */
+ appearance: none;
+-webkit-appearance: none;
+-moz-appearance: none;
+background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="50"><polygon points="0,0 100,0 50,50" style="fill:%23666666;"/></svg>');
+background-position: right 10px top 50%;
+background-repeat: no-repeat;
+background-size: 10px;
+padding-right: 30px;
+}
+
+.form-control select:focus,
+.form-control select:hover {
+  outline: none;
+  border: 1px solid #bbb;
+}
+
+#message {
+  font-size: 16px;
+  font-family: 'Noto Sans', sans-serif;
+  border: 1px solid #ddcccc;
+  border-radius: 5px;
+  padding-left: 5px;
+}
+
+#message:focus,
+#message:hover {
+  outline: none;
+  border: 1px solid #bbb;
+}
+
+/* ---- Video Section ---- */
+.video {
+  padding-top: 200px;
+}
+
+.video .container {
+  text-align: center;
+  margin: 34px auto;
+  max-width: 960px;
+  overflow: hidden;
+  flex-direction: column;
+}
+
+.video h2 {
+  font-weight: 600;
+}
+
+.video h3 {
+  padding-bottom: 10px;
+  font-weight: 400;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+
+}
+
+.video .btn {
+  font-size: 18px;
+}
+
+/* ---- About Section ---- */
+.about {
+  padding: 150px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.about .grid {
+  gap: 30px;
+}
+
+.about-text {
+  /* padding-bottom: 100px; */
+  font-size: 18px;
+}
+
+.about .bg-circle {
+  right: -300px;
+  top: 100px;
+}
+
+.about-img {
+ z-index: 5;
+}
+
+.about-img img {
+  border-radius: 10px;
+  transform: rotate(-5deg);
+  /* z-index: 3; */
+}
+
+/* --- Background experimental style for about pic --- */
+/* .firework-style {
+  margin: 0;
+  position: absolute;
+  top: 30px;
+  right: 400px;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.explosion {
+  position: absolute;
+  width: 6px;
+  height: 350px;
+  transform-origin: 50% 100%;
+  background-color: var(--secondary-color);
+
+}
+
+.explosion:nth-child(1) {
+  transform: rotate(0deg) translateY(-15px);
+  height: 300px;
+  top: 80px;
+}
+.explosion:nth-child(2) {
+  transform: rotate(40deg) translateY(-15px);
+}
+.explosion:nth-child(3) {
+  transform: rotate(140deg) translateY(-15px);
+}
+.explosion:nth-child(4) {
+  transform: rotate(180deg) translateY(-15px);
+  height: 350px;
+}
+.explosion:nth-child(5) {
+  transform: rotate(220deg) translateY(-15px);
+}
+.explosion:nth-child(6) {
+  transform: rotate(320deg) translateY(-15px);
+} */
+
+/* --- Meet Wes --- */
+.meet-wes {
+  position: relative;
+}
+
+.meet-wes .container {
+  flex-direction: column;
+  text-align: center;
+  margin: 40px auto;
+  padding: 30px 0 0;
+  max-width: 800px;
+  overflow: hidden;
+  background-color: rgba(255,255,255,0.85);
+}
+
+.profile-container {
+  width: 300px;
+  height: 300px;
+  margin: 20px 0;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.wes-contact {
+  margin: 50px 0 0;
+  width: 100%;
+}
+
+.contact-btn {
+  padding: 10px 30px;
+  cursor: pointer;
+  border: none;
+  width: 100%;
+  font-size: 24px;
+  margin: 0;
+  border-radius: 0;
+}
+
+.contact-btn:hover {
+  background-color: var(--dark-color);
+}
+
+.meet-wes .bg-circle {
+  width: 200px;
+  height: 200px;
+  z-index: -1;
+}
+
+.meet-wes .bg-circle:nth-child(1) {
+  left: 280px;
+  top: -80px;
+  
+}
+
+.meet-wes .bg-circle:nth-child(2) {
+  right: 240px;
+  bottom: 400px;
+}
+
+.meet-wes .bg-circle:nth-child(3) {
+  left: 200px;
+  bottom: 150px;
+}
+
+/* --- Exam Prep Section --- */
+.exam-prep {
+  padding: 80px 0 120px;
+}
+
+.exam-prep a {
+  color: var(--primary-color);
+}
+
+.exam-prep h2 {
+  padding-bottom: 50px;
+}
+/* --- SlideShow Stuff --- */
+.slideshow-container {
+  width: 100%;
+  position: relative;
+}
+
+.mySlides {
+  display: none;
+  cursor: pointer;
+  width: 650px;
+  height: 380px;
+  margin: 0 auto;
+  transition: .3s;
+  overflow: hidden;
+  /* Change Oliver's Picture on slideShow later */
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+.mySlides img {
+  height: 100%;
+}
+
+.circle-container {
+  width: 100%; 
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+}
+
+.circle-container .circle:hover {
+  opacity: 1;
+}
+
+.prev, .next {
+  background-color: var(--secondary-color);
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  padding: 16px;
+  opacity: .7;
+  cursor: pointer;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 22px;
+  user-select: none;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+.exam-info {
+  padding: 0 10px;
+}
+
+/* Reviews */
+.reviews-section {
+  /* padding-bottom: 60px; */
+  padding: 70px 0 150px;
+}
+
+.reviews-section .flex {
+  flex-direction: column;
+}
+
+.reviews-section h2 {
+  font-weight: 600;
+}
+
+.slideshow-review-container {
+   position: relative;
+   /* margin: auto; */
+   width: 750px;
+}
+
+.review-box {
+  width: 86%;
+  height: auto;
+  box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+  background-color: #fff;
+  padding: 40px;
+  margin: 0px auto;
+  cursor: pointer;
+  display: none;
+  border-radius: 10px;
+  user-select: none;
+  /* Mess With Height Later */
+  height: 240px;
+}
+
+.profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+}
+
+.name-user {
+  display: flex;
+  flex-direction: column;
+}
+
+.name-user strong {
+  color: #3d3d3d;
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+}
+
+.name-user span {
+  color: #979797;
+  font-size: 0.8rem;
+}
+
+.reviews {
+  color: rgb(236, 169, 43);
+}
+
+.box-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.client-comment p {
+  font-size: 0.9rem;
+  color: #4b4b4b;
+}
+
+/* Footer */
+.footer {
+  overflow: hidden;
+  position: relative;
+}
+
+.footer .grid {
+  align-items: end;
+}
+
+.footer .flex {
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.footer .flex:nth-child(3) .bg-circle {
+  z-index: 1;
+  bottom: -350px;
+  right: -100px;
+}
+
+.footer .flex:nth-child(3) a {
+  z-index: 2;
+}
+
+.footer .tta-img img{
+  width: 200px;
+  
+}
+ 
+
+
+
 
 
 
